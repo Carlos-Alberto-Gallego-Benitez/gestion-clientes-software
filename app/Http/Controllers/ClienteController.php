@@ -82,7 +82,7 @@ class ClienteController extends Controller
             'Telefono' => 'required',
             'Observacion' => 'required'
         ]);
-        $role = ClienteModel::create($request->all());
+        $role = ClienteModel::update($request->all());
 
 
         $clientes = ClienteModel::where('Estado', 1) ->get(); //se ejecuta la consulta en la base de datos (SELECT) para listar los clientes
