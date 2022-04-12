@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ClienteModel;
+use App\Models\ServicioModel;
 use Illuminate\Support\Facades\Storage;
 
 class ClienteController extends Controller
@@ -57,8 +58,9 @@ class ClienteController extends Controller
 
     public function show(ClienteModel $cliente) //cargar los datos de la acción ver
     {
+        $servicio = ServicioModel::where('idcliente', $cliente->id) ->get(); 
         $action = 'ver';
-        return view('layouts.clientes', compact('cliente', 'action'));
+        return view('layouts.clientes', compact('cliente','servicio', 'action'));
     }
 
 

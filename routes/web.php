@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ServicioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,10 @@ Route::get('/', function () {
 
 //ruta para acceder al controlador de clientes
 Route::resource('clientes', ClienteController::class)->names('clientes');
+
+//ruta para acceder al controlador de usuarios
+Route::resource('usuarios', UsuarioController::class)->names('usuarios');
+
 
 //ruta para acceder al controlador de usuarios
 Route::resource('usuarios', UsuarioController::class)->names('usuarios');

@@ -48,24 +48,11 @@
                                 Clientes
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="http://127.0.0.1:8000/clientes/create" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="https://prueba-seleccion.carlosgallegobenitez.com/clientes/create" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Registrar                              
+                                Registrar Cliente                            
                             </a>
-                        
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                           </a>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
+                
                         </div>
                     </div>
                 </nav>
@@ -234,7 +221,13 @@
                                 <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary" style="margin-top: 34px;">Guardar</button>
                                </div>
-                            </div>    
+                            </div> 
+                            
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                <a type="submit" href="https://prueba-seleccion.carlosgallegobenitez.com/clientes" class="btn btn-primary" style="margin-top: 34px;">Retroceder</a>
+                               </div>
+                            </div> 
                         </div>
                         </form>
                         @endif     
@@ -324,7 +317,12 @@
                                 <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary" style="margin-top: 34px;">Guardar</button>
                                </div>
-                            </div>    
+                            </div>   
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                <a type="submit" href="https://prueba-seleccion.carlosgallegobenitez.com/clientes" class="btn btn-primary" style="margin-top: 34px;">Retroceder</a>
+                               </div>
+                            </div>  
                         </div>
                         </form>
                         @endif   
@@ -332,7 +330,6 @@
                         @if ($action == 'ver') 
                         <form action="{{route('clientes.update', $cliente->id)}}" method="POST" enctype="multipart/form-data" >   
                         @csrf
-                        @method('PUT')
                         <div class="row">
                              <div class="form-group">
                                  <div class="col-sm-10">
@@ -414,14 +411,64 @@
                             </div>    
                             <div class="form-group">
                                 <div class="col-sm-10">
-                                <a type="submit" href="http://127.0.0.1:8000/clientes" class="btn btn-primary" style="margin-top: 34px;">Retroceder</a>
+                                <a type="submit" href="https://prueba-seleccion.carlosgallegobenitez.com/clientes" class="btn btn-primary" style="margin-top: 34px;">Retroceder</a>
                                </div>
                             </div>  
                         </div>
                         </form>
-                        @endif
-                          
-                     
+
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Tabla de Servicios
+                            </div>
+            
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Imagen</th>
+                                                <th>Tipo</th>
+                                                <th>Fecha Inicio</th>
+                                                <th>Fecha Fin</th>
+                                                <th>Observaciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Imagen</th>
+                                                <th>Tipo</th>
+                                                <th>Fecha Inicio</th>
+                                                <th>Fecha Fin</th>
+                                                <th>Observaciones</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                           @foreach ($servicio as $vacation)
+                                                
+                                                <tr>
+                                                   <td>{{$vacation -> Nombre}}</td>
+                                                   <td>
+                                                     <img src="{{ asset('storage'). '/'. $vacation -> Imagen}}" width="100" />
+                                                   </td>
+                                                   <td>{{$vacation -> Cedula}}</td>
+                                                   <td>{{$vacation -> Correo}}</td>
+                                                   <td>{{$vacation -> Telefono}}</td>
+                                                   <td>{{$vacation -> Observacion}}</td>
+                                                </tr>
+                                           @endforeach        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        @endif  
+                                             
                     </div>
                 </main>
                 

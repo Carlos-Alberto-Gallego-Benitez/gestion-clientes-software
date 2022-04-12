@@ -12,13 +12,6 @@ class UsuarioController extends Controller
     public function index(Request $request) //metodo para consultar los usuarios
     {
 
-        return response($request -> all());
-        $request->validate([
-            'Correo' => 'required',
-            'Password' => 'required'
-        ]);
-        $clientes = UsuarioModel::where('Correo', $correo) ->get() ; //se ejecuta la consulta en la base de datos (SELECT)
-        $action = 'index';
         
     }
 
@@ -71,10 +64,7 @@ class UsuarioController extends Controller
  
     public function show(Request $request)
     {
-        $request->validate([
-            'Correo' => 'required',
-            'Password' => 'required'
-        ]);
+     
     }
 
 
