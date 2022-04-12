@@ -71,7 +71,7 @@ class ClienteController extends Controller
     }
 
 
-    public function update(Request $request, ClienteModel $cliente) //se guardan los datos de el cliente a editar
+    public function update(Request $request,  $cliente) //se guardan los datos de el cliente a editar
     {
         $action = 'index';
         $request->validate([
@@ -82,7 +82,18 @@ class ClienteController extends Controller
             'Telefono' => 'required',
             'Observacion' => 'required'
         ]);
-        $role = ClienteModel::update($request->all());
+        //$role = ClienteModel::update($request->all());
+
+        $usuarios =  ClienteModel :: find($cliente);
+
+        $usuarios->Nombre = $request->Nombre;
+        $usuarios->Imagen = $request->Imagen;
+        $usuarios->Cedula = $request->Cedula;
+        $usuarios->Correo = $request->Correo;
+        $usuarios->Telefono = $request->Telefono;
+        $usuarios->Observacion = $request->Observacion;
+
+        $usuarios->save();
 
 
         $clientes = ClienteModel::where('Estado', 1) ->get(); //se ejecuta la consulta en la base de datos (SELECT) para listar los clientes
