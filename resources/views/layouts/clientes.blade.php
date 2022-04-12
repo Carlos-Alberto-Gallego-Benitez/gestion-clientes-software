@@ -452,13 +452,11 @@
                                                 
                                                 <tr>
                                                    <td>{{$vacation -> Nombre}}</td>
-                                                   <td>
-                                                     <img src="{{ asset('storage'). '/'. $vacation -> Imagen}}" width="100" />
-                                                   </td>
-                                                   <td>{{$vacation -> Cedula}}</td>
-                                                   <td>{{$vacation -> Correo}}</td>
-                                                   <td>{{$vacation -> Telefono}}</td>
-                                                   <td>{{$vacation -> Observacion}}</td>
+                                                   <td>{{$vacation -> Imagen}}</td>
+                                                   <td>{{$vacation -> Tipo}}</td>
+                                                   <td>{{$vacation -> Fechainicio}}</td>
+                                                   <td>{{$vacation -> Fechafin}}</td>
+                                                   <td>{{$vacation -> Observaciones}}</td>
                                                 </tr>
                                            @endforeach        
                                         </tbody>
